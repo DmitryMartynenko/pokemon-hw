@@ -2,12 +2,13 @@
 
 }
 .cardWrapper{
+    background-color: bisque;
     display: block;
     float: left;
     position: relative;
     margin: 0 .78125% 50px;
     width: auto;
-    color: navajowhite;
+
     border: salmon solid 2px;
 }
 

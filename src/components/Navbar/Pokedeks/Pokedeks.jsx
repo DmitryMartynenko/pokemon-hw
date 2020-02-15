@@ -2,6 +2,9 @@ import React from "react";
 import s from './Pokedeks.module.css'
 import {NavLink} from "react-router-dom";
 
+
+
+
 class Pokedeks extends React.Component {
     constructor(props) {
         super(props);
@@ -9,7 +12,6 @@ class Pokedeks extends React.Component {
     }
 
     componentDidMount() {
-
         fetch('http://localhost:3000/pokemons?_limit=100')
             .then(data => data.json())
             .then(data => this.setState({pokemonsData: data}));
@@ -20,6 +22,7 @@ class Pokedeks extends React.Component {
         return (
             <div className={s.cardWrapper}>
                 <NavLink to={`/pokedeks/${id}`}> {name} </NavLink>
+                <img src ={`${process.env.PUBLIC_URL}/pokemons/${id}.png`}></img>
                 <div className={s.id}>{`page${id}`} </div>
             </div>)
     }
