@@ -1,18 +1,16 @@
 import React from "react";
-import s from './Pokedeks.module.css'
+import s from './PokemonList.module.css'
 import {NavLink} from "react-router-dom";
+import PokemonStatus from "../PokemonStatusBtn/PokemonStatus";
 
-
-
-
-class Pokedeks extends React.Component {
+class PokemonList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {pokemonsData: []};
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/pokemons?_limit=100')
+        fetch('http://localhost:3000/pokemons?_limit=5')
             .then(data => data.json())
             .then(data => this.setState({pokemonsData: data}));
     }
@@ -22,8 +20,9 @@ class Pokedeks extends React.Component {
         return (
             <div className={s.cardWrapper}>
                 <NavLink to={`/pokedeks/${id}`}> {name} </NavLink>
-                <img src ={`${process.env.PUBLIC_URL}/pokemons/${id}.png`}></img>
+                <img className={s.imgWrapper} src={`${process.env.PUBLIC_URL}/pokemons/${id}.png`}></img>
                 <div className={s.id}>{`page${id}`} </div>
+                <PokemonStatus/>
             </div>)
     }
 
@@ -33,6 +32,7 @@ class Pokedeks extends React.Component {
         return (
             <div className>
                 <div className>
+
                     {pokemonNodes}
                 </div>
             </div>
@@ -40,4 +40,4 @@ class Pokedeks extends React.Component {
     }
 }
 
-export default Pokedeks;
+export default PokemonList;
