@@ -5,12 +5,13 @@
 .cardWrapper {
     width: 30%;
     height: 30%;
-    background-color: bisque;
     display: block;
     float: left;
     position: relative;
     margin: 0 .78125% 50px;
-    border: salmon solid 2px;
+    border-radius: 5%;
+    background: #f6f7df;
+    border: 1px solid rgb(219, 219, 219);
 }
 
 .imgWrapper {
@@ -21,8 +22,8 @@
 
 }
 
-
-.figure {
+.pokemon-name {
+    color: rgba(64, 70, 66, 0.6901960784313725);
 }
 
 
@@ -33,3 +34,9 @@
     font-size: 80%;
     padding-top: 2px;
 }
+
+
+.loadButton {
+
+}
+

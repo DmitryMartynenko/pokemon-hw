@@ -15,3 +15,5 @@ const PokemonStatus = (props) => {
     )
 };
 export default PokemonStatus;
+
+

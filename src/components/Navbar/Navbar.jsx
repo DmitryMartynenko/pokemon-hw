@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <nav className={s.nav}>
             <div className={s.item}>
-                <NavLink to='/pokedeks' activeClassName={s.activeLink}>Pokedeks</NavLink>
+                <NavLink to='/pokemonList' activeClassName={s.activeLink}>Pokedeks</NavLink>
             </div>
             <div className={s.item}>
                 <NavLink to='/caught' activeClassName={s.activeLink}>caught</NavLink>

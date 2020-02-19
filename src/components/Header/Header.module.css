@@ -1,11 +1,20 @@
 .header {
-    grid-area: h;
-    background-color: green;
-  }
-  
+    display: flex;
+    background: rgba(0, 142, 161, 0.6588235294117647);;
+    color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
 
-  
-  .header img {
+.main-title {
+    cursor: default;
+
+}
+
+
+.header img {
     width: 90px;
-  }
+    margin-right: 2%;
+}
 
