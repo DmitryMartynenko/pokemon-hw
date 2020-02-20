@@ -1,11 +1,11 @@
 import React from "react";
-import s from './PokemonList.module.css'
+import s from './CaughtPokemonsList.css'
 
 import {NavLink} from "react-router-dom";
 import PokemonStatus from "../PokemonStatusBtn/PokemonStatus";
 import GetPokemonItem from "../Pokemon/Pokemon";
 
-class PokemonList extends React.Component {
+class CaughtPokemonsList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,6 +16,7 @@ class PokemonList extends React.Component {
     }
 
     upload() {
+        console.log(this.state.caughtPokemons);
         let counter = this.state.paginationCounter + 5;
         fetch(`http://localhost:3000/pokemons?_limit=${this.state.paginationCounter}`)
             .then(data => data.json())
@@ -50,4 +51,4 @@ class PokemonList extends React.Component {
     }
 }
 
-export default PokemonList;
+export default CaughtPokemonsList;
