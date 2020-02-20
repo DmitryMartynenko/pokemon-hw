@@ -10,7 +10,7 @@ class PokemonList extends React.Component {
         super(props);
         this.state = {
             pokemonsData: [],
-            caughtPokemon: [],
+            caughtPokemons: {},
             paginationCounter: 5
         };
     }
@@ -41,8 +41,6 @@ class PokemonList extends React.Component {
         const elements = pokemonsData.map((item) => {
             return <GetPokemonItem {...item} key={item.id}/>
         });
-
-
         {/*const pokemonNodes = pokemonsData.map(({id, name}) => <getPokemonItem props={pokemonsData}/>(id, name));*/
         }
         return (

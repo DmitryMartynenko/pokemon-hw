@@ -2,7 +2,8 @@ import s from "../PokemonsList/PokemonList.module.css";
 import {NavLink} from "react-router-dom";
 import PokemonStatus from "../Pokedeks/PokemonStatusBtn/PokemonStatus";
 import React from "react";
-import PokemonList from "../PokemonsList/PokemonList";
+import Provider from "react-redux/lib/components/Provider";
+import store from "../redux/store";
 
 
 const GetPokemonItem = ({id, name, isButton}) => {
@@ -13,15 +14,22 @@ const GetPokemonItem = ({id, name, isButton}) => {
             <NavLink to={`/pokemonList/${id}`}>
                 <div>
                     <NavLink to={`/pokemonList/`}>
-                    {isButton && <button>
-                        Back to list
-                    </button>}  </NavLink>
+                        {isButton && <button>
+                            Back to list
+                        </button>}
+                    </NavLink>
                 </div>
                 <p>{name}</p>
                 <img className={s.imgWrapper} src={`${process.env.PUBLIC_URL}/pokemons/${id}.png`}></img>
             </NavLink>
+
+
             <div className={s.id}>{`page${id}`} </div>
-            <PokemonStatus/>
+            <Provider store={store}>
+                <PokemonStatus id={id}/>
+            </Provider>
+
+
         </div>)
 }
 export default GetPokemonItem;
