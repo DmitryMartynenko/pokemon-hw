@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer from "./components/redux";
+const store = createStore( composeWithDevTools(),)
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
