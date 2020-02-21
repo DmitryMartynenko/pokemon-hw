@@ -1,41 +1,42 @@
-import React from "react";
+import React, {Component} from "react";
 import {catchPokemon} from "../redux/actions";
-import connect from "react-redux/lib/connect/connect";
 import s from './PokemonStatus.module.css'
 import Provider from "react-redux/lib/components/Provider";
 import store from "../redux/store";
-
-// {/*disabled={props.caughtPokemons.some(id => id === 3)*/}
-const PokemonStatus = (props) => {
+import {connect} from "react-redux";
 
 
-    const {catchPokemon, id} = props;
+
+class PokemonStatus extends Component{
+    render(){
+
     // const pokemonCaught = catchPokemon.some(pokeId => pokeId === id)
-    // const {id} = this.props === const id = this.props.id;
-    console.log(props.caughtPokemons);
+        console.log("THIS PROPS",this.props)
+     const idClicked = this.props.id;
+     const arrayClicked = this.props.caughtPokemons
+        console.log("IDPOK", idClicked)
+
+
     return (
         <div>
-
                 <button className={s.button}
                     // disabled={props.caughtPokemons.some(id => id === 1)}
-                    disabled={props.caughtPokemons.some(id => id == props.id)}
-                    onClick={event => catchPokemon(props.id)}> catch him
+                    disabled={arrayClicked.some(id => id == idClicked)}
+                    onClick={event => (this.props.catchPokemon(idClicked))}> catch him
                 </button>
-
         </div>
-    )
+    )}
 };
 
-const mapStateToProps = state => ({
-    caughtPokemons: state.caughtPokemons
-});
 
-const mapDispatchToProps = dispatch => ({
-    catchPokemon: id => dispatch(catchPokemon(id))
-});
+function mapStateToProps(state) {
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(PokemonStatus);
+    return {
+        caughtPokemons: state.catchPokemon.caughtPokemons
+    }
+}
+
+export default connect(mapStateToProps,{catchPokemon})(PokemonStatus);
+
+
 

@@ -2,7 +2,7 @@ import {CATCH_POKEMON} from "./actionTypes";
 import connect from "react-redux/lib/connect/connect";
 
 const initialState = {
-    caughtPokemons: [1,2,3,4]
+    caughtPokemons: [1,3,4]
 };
 
 function pokemonsReducer(state = initialState, action) {

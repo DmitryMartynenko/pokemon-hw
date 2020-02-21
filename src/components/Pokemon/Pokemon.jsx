@@ -4,6 +4,7 @@ import PokemonStatus from "../PokemonStatusBtn/PokemonStatus";
 import React from "react";
 import Provider from "react-redux/lib/components/Provider";
 import store from "../redux/store";
+import {connect} from "react-redux";
 
 
 const GetPokemonItem = ({id, name, isButton}) => {
@@ -24,11 +25,16 @@ const GetPokemonItem = ({id, name, isButton}) => {
             </NavLink>
 
             <div className={s.id}>{`№${id}`} </div>
-            <Provider store={store}>
+
                 <PokemonStatus id={id}/>
-            </Provider>
+
 
 
         </div>)
 };
+
+
+
+
+
 export default GetPokemonItem;

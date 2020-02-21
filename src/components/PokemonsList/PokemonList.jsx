@@ -1,9 +1,7 @@
 import React from "react";
 import s from './PokemonList.module.css'
-
-import {NavLink} from "react-router-dom";
-import PokemonStatus from "../PokemonStatusBtn/PokemonStatus";
 import GetPokemonItem from "../Pokemon/Pokemon";
+import {connect} from "react-redux";
 
 class PokemonList extends React.Component {
     constructor(props) {
@@ -30,10 +28,12 @@ class PokemonList extends React.Component {
     render() {
         const pokemonsData = this.state.pokemonsData;
         const elements = pokemonsData.map((item) => {
-            return <GetPokemonItem c {...item} key={item.id} id={item.id}/>
+            return <GetPokemonItem zhopa={this.props.caughtPokemons}
+                                   {...item} key={item.id} id={item.id}/>
         });
         {/*const pokemonNodes = pokemonsData.map(({id, name}) => <getPokemonItem props={pokemonsData}/>(id, name));*/
         }
+
         return (
             <div>
                 <div>
@@ -50,4 +50,12 @@ class PokemonList extends React.Component {
     }
 }
 
-export default PokemonList;
+function mapStateToProps(state) {
+
+    return {
+        caughtPokemons: state.catchPokemon.caughtPokemons
+    }
+}
+
+export default connect(mapStateToProps)(PokemonList);
+

@@ -1,11 +1,15 @@
 import { createStore } from "redux";
-import pokemons from "./reducer";
+import rootReducer from "./index";
+
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+
+const store = createStore(rootReducer, composeWithDevTools());
 
 
 
 
 
-const store = createStore(pokemons);
 
 
 export default store;
