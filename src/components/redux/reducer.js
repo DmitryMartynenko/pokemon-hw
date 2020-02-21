@@ -1,17 +1,17 @@
-
-// нужно будет сделать акшен для загрузки сюда из сервера
 import {CATCH_POKEMON} from "./actionTypes";
+import connect from "react-redux/lib/connect/connect";
 
 const initialState = {
-    caughtPokemons: [1,2,3],
+    caughtPokemons: [],
 };
 
 function pokemonsReducer(state = initialState, action) {
 
-    switch (action.type) {
+        switch (action.type) {
         case CATCH_POKEMON: {
-            console.log('STATE:',state,'ACTION:',action);
-            console.log('STATE:',state,'ACTION:',action);
+            // console.log('STATE:',state,'ACTION:',action);
+            // console.log('STATE:',state,'ACTION:',action);
+            console.log(action.id);
 
             return {
                 ...state,
@@ -20,9 +20,14 @@ function pokemonsReducer(state = initialState, action) {
         }
         default:
             return state;
-
-
     }
 }
 
-export default pokemonsReducer;
+const mapStateToProps = state => ({
+    caughtPokemons: state.caughtPokemons
+});
+
+// export default connect(
+//        mapStateToProps,
+// )(pokemonsReducer);
+export default pokemonsReducer

@@ -1,6 +1,6 @@
-import s from "../PokemonsList/PokemonList.module.css";
+import s from "./Pokemon.module.css";
 import {NavLink} from "react-router-dom";
-import PokemonStatus from "../Pokedeks/PokemonStatusBtn/PokemonStatus";
+import PokemonStatus from "../PokemonStatusBtn/PokemonStatus";
 import React from "react";
 import Provider from "react-redux/lib/components/Provider";
 import store from "../redux/store";
@@ -31,5 +31,5 @@ const GetPokemonItem = ({id, name, isButton}) => {
 
 
         </div>)
-}
+};
 export default GetPokemonItem;
