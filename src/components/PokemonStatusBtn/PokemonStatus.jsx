@@ -12,13 +12,13 @@ const PokemonStatus = (props) => {
     const {catchPokemon, id} = props;
     // const pokemonCaught = catchPokemon.some(pokeId => pokeId === id)
     // const {id} = this.props === const id = this.props.id;
-
+    console.log(props.caughtPokemons);
     return (
         <div>
 
                 <button className={s.button}
                     // disabled={props.caughtPokemons.some(id => id === 1)}
-                    disabled={props.caughtPokemons.some(id => id === props.id)}
+                    disabled={props.caughtPokemons.some(id => id == props.id)}
                     onClick={event => catchPokemon(props.id)}> catch him
                 </button>
 

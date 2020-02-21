@@ -1,23 +1,20 @@
 import React from "react";
-import s from './CaughtPokemonsList.css'
-
-import {NavLink} from "react-router-dom";
-import PokemonStatus from "../PokemonStatusBtn/PokemonStatus";
 import GetPokemonItem from "../Pokemon/Pokemon";
+
 
 class CaughtPokemonsList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             pokemonsData: [],
-            caughtPokemons: {},
-            paginationCounter: 10
+            caughtPokemons: [1, 2, 3],
+            paginationCounter: 9,
         };
     }
 
     upload() {
-        console.log(this.state.caughtPokemons);
-        let counter = this.state.paginationCounter + 5;
+
+        let counter = this.state.paginationCounter + 6;
         fetch(`http://localhost:3000/pokemons?_limit=${this.state.paginationCounter}`)
             .then(data => data.json())
             .then(data => this.setState({pokemonsData: data, paginationCounter: counter}))
@@ -28,8 +25,21 @@ class CaughtPokemonsList extends React.Component {
         this.upload()
     }
 
+    sortData(data, filter) {
+        data = this.state.pokemonsData;
+        filter = this.state.caughtPokemons;
+        let sortResult = [];
+        sortResult = data.filter(el => filter.includes(el.id));
+        return sortResult;
+    }
+
     render() {
-        const pokemonsData = this.state.pokemonsData;
+        console.log("caughtPokemons", this.state.pokemonsData);
+        // console.log("caughtPokemons", this.store.state.pokemonsData);
+        console.log("SORTED", this.sortData());
+
+
+        const pokemonsData = this.sortData();
         const elements = pokemonsData.map((item) => {
             return <GetPokemonItem c {...item} key={item.id} id={item.id}/>
         });
@@ -40,11 +50,7 @@ class CaughtPokemonsList extends React.Component {
                 <div>
                     <div> {elements} </div>
                     {/*{pokemonNodes}*/}
-                    <button className={s.loadButton} onClick={() => {
-                        // this.pagination();
-                        this.upload();
-                    }}> Load More
-                    </button>
+
                 </div>
             </div>
         )

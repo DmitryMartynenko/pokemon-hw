@@ -3,7 +3,7 @@ import {combineReducers} from "redux";
 
 
 const rootReducer = combineReducers({
-    catchPokemom:pokemonsReducer
+    catchPokemon:pokemonsReducer
 });
 
 export default rootReducer

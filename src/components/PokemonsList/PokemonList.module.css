@@ -36,5 +36,12 @@
 }
 
 
-
+.loadButton{
+    border: none;
+    padding: 120px 80px;
+    background-color: lightcyan;
+    border-radius: 25px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    margin: 5%;
+}
 

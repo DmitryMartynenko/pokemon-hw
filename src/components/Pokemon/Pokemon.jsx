@@ -13,18 +13,17 @@ const GetPokemonItem = ({id, name, isButton}) => {
         <div className={s.cardWrapper}>
             <NavLink to={`/pokemonList/${id}`}>
                 <div>
-                    <NavLink to={`/pokemonList/`}>
+                    <NavLink className={s.button} to={`/pokemonList/`}>
                         {isButton && <button>
                             Back to list
                         </button>}
                     </NavLink>
                 </div>
-                <p>{name}</p>
+                <div className={s.nameWrapper}><p className={s.name}>{name}</p></div>
                 <img className={s.imgWrapper} src={`${process.env.PUBLIC_URL}/pokemons/${id}.png`}></img>
             </NavLink>
 
-
-            <div className={s.id}>{`page${id}`} </div>
+            <div className={s.id}>{`№${id}`} </div>
             <Provider store={store}>
                 <PokemonStatus id={id}/>
             </Provider>

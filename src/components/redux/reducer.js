@@ -2,7 +2,7 @@ import {CATCH_POKEMON} from "./actionTypes";
 import connect from "react-redux/lib/connect/connect";
 
 const initialState = {
-    caughtPokemons: [],
+    caughtPokemons: [1,2,3,4]
 };
 
 function pokemonsReducer(state = initialState, action) {
@@ -21,13 +21,7 @@ function pokemonsReducer(state = initialState, action) {
         default:
             return state;
     }
+
 }
 
-const mapStateToProps = state => ({
-    caughtPokemons: state.caughtPokemons
-});
-
-// export default connect(
-//        mapStateToProps,
-// )(pokemonsReducer);
 export default pokemonsReducer
